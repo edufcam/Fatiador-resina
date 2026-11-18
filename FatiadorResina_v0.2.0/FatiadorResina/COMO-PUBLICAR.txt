@@ -1,0 +1,8 @@
+COMO ATUALIZAR O PROGRAMA NO GITHUB
+===================================
+1. Entre em github.com e abra o repositório "fatiador-resina".
+2. Clique em "Add file" > "Upload files".
+3. Arraste TODO o conteúdo desta pasta (arquivos e pastas) para a página.
+4. Clique no botão verde "Commit changes".
+5. Espere uns 15 minutos. A versão nova aparece em "Releases".
+6. O programa instalado avisa sozinho que tem atualização ao ser aberto.

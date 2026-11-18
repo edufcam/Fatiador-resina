@@ -1,0 +1,5 @@
+- Visual novo, com tema escuro e claro
+- Instalador e atualização automática
+- Lista de peças com medidas, botão de mostrar/ocultar e menu do botão direito
+- Cartão com medidas e resina da peça selecionada
+- Vistas 3D, topo, frente e lado
