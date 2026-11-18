@@ -14,12 +14,23 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Ler a versão
+      - name: Achar a pasta do programa e a versão
         id: versao
         shell: pwsh
         run: |
-          $v = (Select-String -Path fatiador/__init__.py -Pattern 'VERSAO\s*=\s*"([^"]+)"').Matches[0].Groups[1].Value
-          "numero=$v" >> $env:GITHUB_OUTPUT
+          $melhor = $null
+          $maior = [version]"0.0.0"
+          Get-ChildItem -Recurse -Filter "__init__.py" | Where-Object { $_.Directory.Name -eq "fatiador" } | ForEach-Object {
+            $m = Select-String -Path $_.FullName -Pattern 'VERSAO\s*=\s*"([^"]+)"'
+            if ($m) {
+              $v = [version]$m.Matches[0].Groups[1].Value
+              if ($v -ge $maior) { $maior = $v; $melhor = $_.Directory.Parent.FullName }
+            }
+          }
+          if (-not $melhor) { Write-Error "Nao achei a pasta 'fatiador' com o arquivo __init__.py"; exit 1 }
+          Write-Host "Pasta do programa: $melhor  Versao: $maior"
+          "pasta=$melhor" >> $env:GITHUB_OUTPUT
+          "numero=$maior" >> $env:GITHUB_OUTPUT
 
       - name: Ver se esta versão já foi publicada
         id: existe
@@ -38,17 +49,20 @@ jobs:
 
       - name: Instalar bibliotecas
         if: steps.existe.outputs.pular == 'nao'
+        working-directory: ${{ steps.versao.outputs.pasta }}
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt pyinstaller
 
       - name: Gravar o endereço para as atualizações
         if: steps.existe.outputs.pular == 'nao'
+        working-directory: ${{ steps.versao.outputs.pasta }}
         shell: pwsh
         run: Set-Content -Path fatiador/_repo.py -Value 'REPO = "${{ github.repository }}"'
 
       - name: Montar o programa
         if: steps.existe.outputs.pular == 'nao'
+        working-directory: ${{ steps.versao.outputs.pasta }}
         run: >
           pyinstaller --noconfirm --windowed --name FatiadorResina
           --icon recursos/icone.ico --add-data "recursos;recursos"
@@ -64,10 +78,15 @@ jobs:
 
       - name: Montar o instalador
         if: steps.existe.outputs.pular == 'nao'
+        working-directory: ${{ steps.versao.outputs.pasta }}
         shell: pwsh
         run: |
           choco install innosetup -y --no-progress
           & "${env:ProgramFiles(x86)}\Inno Setup 6\ISCC.exe" "/DMinhaVersao=${{ steps.versao.outputs.numero }}" instalador.iss
+          if ($LASTEXITCODE -ne 0) { exit 1 }
+          New-Item -ItemType Directory -Force -Path "$env:GITHUB_WORKSPACE\publicar" | Out-Null
+          Copy-Item saida\*.exe "$env:GITHUB_WORKSPACE\publicar\"
+          if (Test-Path NOVIDADES.md) { Copy-Item NOVIDADES.md "$env:GITHUB_WORKSPACE\publicar\novidades.txt" } else { Set-Content "$env:GITHUB_WORKSPACE\publicar\novidades.txt" "Melhorias e correções." }
 
       - name: Publicar a versão
         if: steps.existe.outputs.pular == 'nao'
@@ -75,5 +94,5 @@ jobs:
         with:
           tag_name: v${{ steps.versao.outputs.numero }}
           name: Fatiador Resina ${{ steps.versao.outputs.numero }}
-          body_path: NOVIDADES.md
-          files: saida/*.exe
+          body_path: publicar/novidades.txt
+          files: publicar/*.exe
