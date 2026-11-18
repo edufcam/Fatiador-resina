@@ -1,0 +1,5 @@
+- Nova aba Encaixes: pinos de um lado do corte e furos do outro, criados automaticamente
+- O programa escolhe quantos pinos (1 a 4) e onde, longe das bordas, e confere se o furo não atravessa a parede
+- Pino redondo ou quadrado (não deixa girar), com folga, diâmetro e profundidade ajustáveis
+- Os pinos aparecem em verde na prévia do corte
+- Pinos com ponta chanfrada e furos com boca alargada, para encaixar mais fácil
