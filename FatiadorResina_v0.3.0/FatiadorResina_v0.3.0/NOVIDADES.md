@@ -1,0 +1,4 @@
+- Nova aba Cortar: corte horizontal, vertical ou inclinado, com prévia do plano e do contorno
+- As faces cortadas são fechadas automaticamente (peça continua sólida)
+- Opções para organizar as partes na mesa, deitar pela face cortada e separar pedaços soltos
+- Novo botão "Organizar todas na mesa" na aba Posicionar
