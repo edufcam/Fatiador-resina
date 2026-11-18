@@ -1,0 +1,7 @@
+- Nova aba Suportes: suportes automáticos com densidade leve, média ou pesada
+- Acha as partes penduradas e as pontas que começam no ar (ilhas)
+- Suportes que se apoiam na própria peça quando não há caminho até a mesa
+- Travamento em X entre pilares altos e base (raft) ajustável
+- Adicionar e remover suportes clicando na peça
+- Áreas sem suporte aparecem em vermelho
+- Resina dos suportes somada no total; suportes saem junto no STL e ficam salvos no projeto
