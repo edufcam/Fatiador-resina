@@ -1,0 +1,8 @@
+- Suportes só por fora da peça: peças ocas não recebem mais suportes dentro do vazio
+- Nova opção "Suportes internos" para ligar quando quiser segurar o teto de peças ocas grandes
+- Novo botão "Verificar suportes": mostra em vermelho os que atravessam a peça e em âmbar os que ficam no vazio interno, com opção de remover
+- As hastes de travamento não passam mais por dentro da peça
+- Programa mais leve: só redesenha o que mudou e as tarefas pesadas rodam sem travar a tela
+- Atualização: aviso numa faixa no topo, barra de progresso do download, opção de pular uma versão, conferência do arquivo baixado e tela de novidades depois de atualizar
+- Peças cortadas ou importadas não ficam mais por cima das que já estavam na mesa
+- Visualização 3D até 3 vezes mais rápida
