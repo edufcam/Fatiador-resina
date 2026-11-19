@@ -1,0 +1,5 @@
+- Nova aba Ocar: deixa a peça oca com a espessura de parede que você escolher, para gastar menos resina
+- Cria 2 furos de drenagem automáticos perto da mesa, em lados opostos
+- Adicionar furo de drenagem clicando na peça
+- Verificação de sucção: mostra em vermelho os vazios que viram ventosa durante a impressão (inclusive peças em forma de copo)
+- Mostra quanto de resina foi economizado
