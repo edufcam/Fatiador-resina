@@ -1,0 +1,8 @@
+- Novo botão Calibrar resina: a mesma peça em 4, 6 ou 8 regiões da mesa, cada uma com um tempo de exposição. A cada camada, as regiões que completaram o tempo são apagadas sem mover a mesa, e a mesa só sobe quando a última termina
+- Peça de calibração própria, com o tempo gravado em relevo, pinos de 0,4 a 1,5 mm, paredes de 0,2 a 0,8 mm, furos de 0,5 a 1,6 mm e uma ponte
+- Também dá para usar a peça selecionada na mesa no teste
+- Fatiador completo, com abas Exposição, Mesa e Resina
+- Camadas de transição (o tempo cai aos poucos da base para o normal)
+- Esperas antes de expor, depois de expor e depois de subir
+- Subida e descida em duas velocidades (começa devagar e termina rápido)
+- Densidade e preço da resina: mostra peso e custo da impressão
