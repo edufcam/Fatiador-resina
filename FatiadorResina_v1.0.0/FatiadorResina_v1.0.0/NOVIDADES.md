@@ -1,0 +1,6 @@
+- Novo: salva o arquivo .ctb da Saturn 2 8K, pronto para o pen drive, sem precisar do ChituBox
+- O .ctb segue exatamente o formato do ChituBox (conferido com um arquivo real fatiado por ele)
+- Subida e descida em duas etapas, esperas e camadas de transição vão para o arquivo como no ChituBox
+- O teste de calibração por regiões também sai em .ctb: as regiões são apagadas sem mover a mesa
+- Prévia da mesa aparece na lista de arquivos da impressora
+- O formato ZIP do ChituBox continua disponível na hora de salvar
