@@ -1,0 +1,8 @@
+- Novo botão Fatiar: gera as camadas da mesa inteira na resolução da Saturn 2 8K (7680 x 4320)
+- Prévia camada por camada, com a área iluminada de cada uma
+- Perfis de resina: altura da camada, exposição, exposição da base, camadas de base, luz apagada, subida e velocidades; salve um perfil para cada resina
+- Tempo de impressão e resina estimados antes de imprimir
+- Salva o arquivo no formato ZIP do ChituBox (imagens de cada camada + comandos)
+- Suportes muito mais completos: o programa agora confere a peça camada por camada e põe suporte em tudo que ficaria no ar (ilhas, bordas, pontas)
+- Os pontos sem suporte aparecem em vermelho com mais precisão
+- Corrigido: peças levantadas podiam ficar sem suportes até a mesa
